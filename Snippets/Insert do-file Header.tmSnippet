@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>// \$Id\$
+
+// ${1:description}
+
+version 11.0
+$0</string>
+	<key>name</key>
+	<string>do-file Header</string>
+	<key>scope</key>
+	<string>source.stata</string>
+	<key>uuid</key>
+	<string>B35333D2-A73E-4111-A91D-3B33F841E491</string>
+</dict>
+</plist>

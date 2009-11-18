@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string># if project directory is set, open there; ow open in directory of current file
+if [ -n "$TM_PROJECT_DIRECTORY" ]
+then
+	STATA_DIR="$TM_PROJECT_DIRECTORY"
+elif [ -n "$TM_DIRECTORY" ]
+then
+	STATA_DIR="$TM_DIRECTORY"
+fi
+
+if [ -n "$STATA_DIR" ]
+then
+	TMPFILE="$STATA_DIR/.tm-stata-$$.do"
+	if [ ! -e "$TMPFILE" ]
+	then
+		echo "cd \"$STATA_DIR\"" &gt; "$TMPFILE"
+		osascript &lt;&lt;-APPLESCRIPT
+			tell application id "com.stata.stata11" to activate
+         		tell application id "com.stata.stata11" to open POSIX file "${TMPFILE}"
+			delay 0.5  -- avoid deleting file before Stata reads it
+			do shell script "rm \"${TMPFILE}\""
+		APPLESCRIPT
+	else
+		osascript -e "tell application id \"com.stata.stata11\" to activate"
+	fi
+else
+	osascript -e "tell application id \"com.stata.stata11\" to activate"
+fi
+</string>
+	<key>input</key>
+	<string>none</string>
+	<key>keyEquivalent</key>
+	<string>^S</string>
+	<key>name</key>
+	<string>Switch to Stata</string>
+	<key>output</key>
+	<string>discard</string>
+	<key>scope</key>
+	<string>source.stata</string>
+	<key>uuid</key>
+	<string>B4140F50-0715-428A-9288-FF150EF709F0</string>
+</dict>
+</plist>

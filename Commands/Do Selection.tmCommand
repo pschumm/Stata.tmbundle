@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>if [ -n "$TM_PROJECT_DIRECTORY" ]
+then
+	STATA_DIR="$TM_PROJECT_DIRECTORY"
+elif [ -n "$TM_DIRECTORY" ]
+then
+	STATA_DIR="$TM_DIRECTORY"
+else
+	STATA_DIR="$HOME/Desktop"
+fi
+
+# note: Stata won't open file unless it has extension .do; thus, we
+# can't use mktemp to create temporary file
+# TMPFILE=`mktemp $STATA_DIR/tm-stata.XXXXXX` || exit 1
+
+# here we just use the process id instead
+TMPFILE="$STATA_DIR/.tm-stata-$$.do"
+if [ ! -e "$TMPFILE" ]
+then
+	if [[ -n "$TM_SELECTED_TEXT" ]]
+		then echo "$TM_SELECTED_TEXT" &gt; "$TMPFILE"
+		else echo "$TM_CURRENT_LINE" &gt; "$TMPFILE"
+	fi
+	osascript &lt;&lt;-APPLESCRIPT
+		tell application id "com.stata.stata11" to open POSIX file "${TMPFILE}"
+		delay 0.5  -- avoid deleting file before Stata reads it
+		do shell script "rm \"${TMPFILE}\""
+	APPLESCRIPT
+else
+	echo "Can't create temporary file $TMPFILE (already exists)"
+fi
+</string>
+	<key>input</key>
+	<string>none</string>
+	<key>keyEquivalent</key>
+	<string>~@r</string>
+	<key>name</key>
+	<string>Do Line/Selection</string>
+	<key>output</key>
+	<string>discard</string>
+	<key>scope</key>
+	<string>source.stata</string>
+	<key>uuid</key>
+	<string>E023147E-D0AC-455E-A0F6-EE381F2906AA</string>
+</dict>
+</plist>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>Smart Typing</string>
+	<key>scope</key>
+	<string>source.stata</string>
+	<key>settings</key>
+	<dict>
+		<key>decreaseIndentPattern</key>
+		<string>\}</string>
+		<key>increaseIndentPattern</key>
+		<string>^.*\{[^}]*$</string>
+		<key>smartTypingPairs</key>
+		<array>
+			<array>
+				<string>"</string>
+				<string>"</string>
+			</array>
+			<array>
+				<string>(</string>
+				<string>)</string>
+			</array>
+			<array>
+				<string>{</string>
+				<string>}</string>
+			</array>
+			<array>
+				<string>[</string>
+				<string>]</string>
+			</array>
+			<array>
+				<string>`</string>
+				<string>'</string>
+			</array>
+			<array>
+				<string>`"</string>
+				<string>"'</string>
+			</array>
+		</array>
+	</dict>
+	<key>uuid</key>
+	<string>21C0ECBD-E9F8-45E1-8FC1-4527D4B62DBB</string>
+</dict>
+</plist>

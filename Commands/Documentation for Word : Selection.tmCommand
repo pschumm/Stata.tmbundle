@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>if [ -n "$TM_PROJECT_DIRECTORY" ]
+then
+	TMPFILE="$TM_PROJECT_DIRECTORY/.tm-stata-$$.do"
+elif [ -n "$TM_DIRECTORY" ]
+then
+	TMPFILE="$TM_DIRECTORY/.tm-stata-$$.do"
+else
+	TMPFILE="$HOME/Desktop/.tm-stata-$$.do"
+fi
+
+if [ ! -e "$TMPFILE" ]
+then
+	if [[ -n "$TM_SELECTED_TEXT" ]]
+		then echo "help $TM_SELECTED_TEXT" &gt; "$TMPFILE"
+		else echo "help $TM_CURRENT_WORD" &gt; "$TMPFILE"
+	fi
+	osascript &lt;&lt;-APPLESCRIPT
+		tell application id "com.stata.stata11" to activate
+		tell application id "com.stata.stata11" to open POSIX file "${TMPFILE}"
+		delay 0.5
+		do shell script "rm \"${TMPFILE}\""
+	APPLESCRIPT
+else
+	echo "Can't create temporary file $TMPFILE (already exists)"
+fi
+</string>
+	<key>fallbackInput</key>
+	<string>word</string>
+	<key>input</key>
+	<string>none</string>
+	<key>keyEquivalent</key>
+	<string>^h</string>
+	<key>name</key>
+	<string>Documentation for Word/Selection</string>
+	<key>output</key>
+	<string>discard</string>
+	<key>scope</key>
+	<string>source.stata, source.mata</string>
+	<key>uuid</key>
+	<string>2E4A1AC8-71D3-4B7C-A627-8BAD37B5734B</string>
+</dict>
+</plist>

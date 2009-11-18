@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>*! \$Rev\$  \$Date\$
+// ${1:description}
+
+// \$URL\$
+
+program ${2:program name}
+	version 11.0
+	$0
+
+end
+</string>
+	<key>name</key>
+	<string>ado-file Header</string>
+	<key>scope</key>
+	<string>source.stata</string>
+	<key>uuid</key>
+	<string>0031944B-EFD6-4EED-A4B0-792B52D8B6B9</string>
+</dict>
+</plist>
