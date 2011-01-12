@@ -1,10 +1,8 @@
-*! \$Rev\$  \$Date\$
+*! 1.0.0d1  `date +%Y-%m-%d`
 // ${1:description}
 
-// \$URL\$
-
 program ${2:program name}
-	version 11.0
+	version 11.1
 	$0
 
 end

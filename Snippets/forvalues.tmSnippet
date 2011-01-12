@@ -3,15 +3,14 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>// ${1:description}
-
-version 11.1
-$0</string>
+	<string>forv ${1:lname} = ${2:range} {
+    $0
+}</string>
 	<key>name</key>
-	<string>do-file Header</string>
-	<key>scope</key>
-	<string>source.stata</string>
+	<string>forvalues</string>
+	<key>tabTrigger</key>
+	<string>forv</string>
 	<key>uuid</key>
-	<string>B35333D2-A73E-4111-A91D-3B33F841E491</string>
+	<string>3DF21687-CF58-449E-860B-F4BF96B89AA2</string>
 </dict>
 </plist>

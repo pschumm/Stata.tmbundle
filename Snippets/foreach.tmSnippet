@@ -3,15 +3,16 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>// ${1:description}
-
-version 11.1
-$0</string>
+	<string>foreach ${1:lname} ${2:{in|of local|of global|of varlist|of newlist|of numlist\}} ${3:list} {
+    $0
+}</string>
 	<key>name</key>
-	<string>do-file Header</string>
+	<string>foreach</string>
 	<key>scope</key>
 	<string>source.stata</string>
+	<key>tabTrigger</key>
+	<string>fore</string>
 	<key>uuid</key>
-	<string>B35333D2-A73E-4111-A91D-3B33F841E491</string>
+	<string>F7B12BD3-3EBB-4C35-9CB4-0133B9831FF7</string>
 </dict>
 </plist>

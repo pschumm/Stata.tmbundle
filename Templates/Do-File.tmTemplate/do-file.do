@@ -1,6 +1,4 @@
-// \$Id\$
-
 // ${1:description}
 
-version 11.0
+version 11.1
 $0

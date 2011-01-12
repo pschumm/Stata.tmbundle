@@ -19,6 +19,11 @@
 			<string>B4140F50-0715-428A-9288-FF150EF709F0</string>
 			<string>B1E8AA7A-171E-4E0B-B254-79D9AD936032</string>
 			<string>E023147E-D0AC-455E-A0F6-EE381F2906AA</string>
+			<string>2E4A1AC8-71D3-4B7C-A627-8BAD37B5734B</string>
+			<string>------------------------------------</string>
+			<string>C166E071-416C-4D9C-A6ED-624D184CCF9B</string>
+			<string>------------------------------------</string>
+			<string>B4CBA30A-12F2-4C41-9C26-B1DE7F6D8DCB</string>
 		</array>
 		<key>submenus</key>
 		<dict>
@@ -32,6 +37,16 @@
 				</array>
 				<key>name</key>
 				<string>Insert</string>
+			</dict>
+			<key>C166E071-416C-4D9C-A6ED-624D184CCF9B</key>
+			<dict>
+				<key>items</key>
+				<array>
+					<string>F7B12BD3-3EBB-4C35-9CB4-0133B9831FF7</string>
+					<string>3DF21687-CF58-449E-860B-F4BF96B89AA2</string>
+				</array>
+				<key>name</key>
+				<string>Loops</string>
 			</dict>
 		</dict>
 	</dict>
@@ -47,9 +62,12 @@
 		<string>B1E8AA7A-171E-4E0B-B254-79D9AD936032</string>
 		<string>E023147E-D0AC-455E-A0F6-EE381F2906AA</string>
 		<string>2E4A1AC8-71D3-4B7C-A627-8BAD37B5734B</string>
+		<string>B4CBA30A-12F2-4C41-9C26-B1DE7F6D8DCB</string>
 		<string>DCB4A2C1-C761-44E8-BF69-DBBB327676FA</string>
 		<string>B35333D2-A73E-4111-A91D-3B33F841E491</string>
 		<string>0031944B-EFD6-4EED-A4B0-792B52D8B6B9</string>
+		<string>F7B12BD3-3EBB-4C35-9CB4-0133B9831FF7</string>
+		<string>3DF21687-CF58-449E-860B-F4BF96B89AA2</string>
 		<string>A3B85D06-DCF0-4782-B085-6C881D260963</string>
 		<string>36E5A173-9B9C-49BD-9790-7D79A3C69C5B</string>
 	</array>
