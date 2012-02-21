@@ -2,7 +2,7 @@
 // ${1:description}
 
 program ${2:program name}
-	version 11.1
+	version 12.1
 	$0
 
 end

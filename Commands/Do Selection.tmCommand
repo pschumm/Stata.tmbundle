@@ -28,7 +28,7 @@ then
 		else echo "$TM_CURRENT_LINE" &gt; "$TMPFILE"
 	fi
 	osascript &lt;&lt;-APPLESCRIPT
-		tell application id "com.stata.stata11" to open POSIX file "${TMPFILE}"
+		tell application id "S5x8" to open POSIX file "${TMPFILE}"
 		delay 0.5  -- avoid deleting file before Stata reads it
 		do shell script "rm \"${TMPFILE}\""
 	APPLESCRIPT

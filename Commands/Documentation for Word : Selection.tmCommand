@@ -22,8 +22,8 @@ then
 		else echo "help $TM_CURRENT_WORD" &gt; "$TMPFILE"
 	fi
 	osascript &lt;&lt;-APPLESCRIPT
-		tell application id "com.stata.stata11" to activate
-		tell application id "com.stata.stata11" to open POSIX file "${TMPFILE}"
+		tell application id "S5x8" to activate
+		tell application id "S5x8" to open POSIX file "${TMPFILE}"
 		delay 0.5
 		do shell script "rm \"${TMPFILE}\""
 	APPLESCRIPT
