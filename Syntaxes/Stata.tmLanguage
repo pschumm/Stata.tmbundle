@@ -12,6 +12,8 @@
 	<string>\{\s*$</string>
 	<key>foldingStopMarker</key>
 	<string>^\s*\}</string>
+	<key>keyEquivalent</key>
+	<string>^~@s</string>
 	<key>name</key>
 	<string>Stata</string>
 	<key>patterns</key>
