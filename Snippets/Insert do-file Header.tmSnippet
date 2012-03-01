@@ -11,6 +11,8 @@ $0</string>
 	<string>do-file Header</string>
 	<key>scope</key>
 	<string>source.stata</string>
+	<key>tabTrigger</key>
+	<string>dohead</string>
 	<key>uuid</key>
 	<string>B35333D2-A73E-4111-A91D-3B33F841E491</string>
 </dict>
