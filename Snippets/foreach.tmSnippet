@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>foreach ${1:lname} ${2:in|of local|of global|of varlist|of newlist|of numlist} ${3:list} {
+	<string>foreach ${1:lname} ${2|in,of local,of global,of varlist,of newlist,of numlist|} ${3:list} {
     $0
 }</string>
 	<key>name</key>

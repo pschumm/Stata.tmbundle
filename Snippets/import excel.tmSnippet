@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>import excel${1: extvarlist} using ${2:filename}${3:,${4: describe}${5:${6: sheet("${7:sheetname}")}${8: cellrange(${9:start}${10::end})}${11: firstrow}${12: case(${13:preserve|lower|upper})}${14: allstring}${15: clear}${16: locale("${17:locale}")}}}</string>
+	<string>import excel${1: extvarlist} using ${2:filename}${3:,${4: describe}${5:${6: sheet("${7:sheetname}")}${8: cellrange(${9:start}${10::end})}${11: firstrow}${12: case(${13|preserve,lower,upper|})}${14: allstring}${15: clear}${16: locale("${17:locale}")}}}</string>
 	<key>name</key>
 	<string>import excel</string>
 	<key>tabTrigger</key>
