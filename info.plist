@@ -22,6 +22,7 @@
 			<string>2E4A1AC8-71D3-4B7C-A627-8BAD37B5734B</string>
 			<string>------------------------------------</string>
 			<string>C166E071-416C-4D9C-A6ED-624D184CCF9B</string>
+			<string>ADE0DC2E-74DF-4442-858D-553676B91EBA</string>
 			<string>------------------------------------</string>
 			<string>B4CBA30A-12F2-4C41-9C26-B1DE7F6D8DCB</string>
 		</array>
@@ -37,6 +38,16 @@
 				</array>
 				<key>name</key>
 				<string>Insert</string>
+			</dict>
+			<key>ADE0DC2E-74DF-4442-858D-553676B91EBA</key>
+			<dict>
+				<key>items</key>
+				<array>
+					<string>900D5CA3-BD6F-4003-B6A2-3C88F4059C36</string>
+					<string>B32E20C0-0237-4DC1-B172-CD257C1295FD</string>
+				</array>
+				<key>name</key>
+				<string>Excel Files</string>
 			</dict>
 			<key>C166E071-416C-4D9C-A6ED-624D184CCF9B</key>
 			<dict>
@@ -68,6 +79,8 @@
 		<string>0031944B-EFD6-4EED-A4B0-792B52D8B6B9</string>
 		<string>F7B12BD3-3EBB-4C35-9CB4-0133B9831FF7</string>
 		<string>3DF21687-CF58-449E-860B-F4BF96B89AA2</string>
+		<string>900D5CA3-BD6F-4003-B6A2-3C88F4059C36</string>
+		<string>B32E20C0-0237-4DC1-B172-CD257C1295FD</string>
 		<string>A3B85D06-DCF0-4782-B085-6C881D260963</string>
 		<string>36E5A173-9B9C-49BD-9790-7D79A3C69C5B</string>
 	</array>

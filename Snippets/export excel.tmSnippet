@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>export excel${1: varlist} using ${2:filename}${3: if $4}${5: in $6}${7:,${8: sheet("${9:sheetname}")}${10: cell(${11:start})}${12: sheetmodify|sheetreplace|replace}${13: firstrow(${14:variables|varlabels})}${15: nolabel}${16: datestring("${17:datetime_format}")}${18: missing("${19:repval}")}${20: locale("${21:locale}")}}</string>
+	<key>name</key>
+	<string>export excel</string>
+	<key>tabTrigger</key>
+	<string>export exc</string>
+	<key>uuid</key>
+	<string>B32E20C0-0237-4DC1-B172-CD257C1295FD</string>
+</dict>
+</plist>
