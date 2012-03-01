@@ -6,6 +6,8 @@
 	<string>import excel${1: extvarlist} using ${2:filename}${3:,${4: describe}${5:${6: sheet("${7:sheetname}")}${8: cellrange(${9:start}${10::end})}${11: firstrow}${12: case(${13:preserve|lower|upper})}${14: allstring}${15: clear}${16: locale("${17:locale}")}}}</string>
 	<key>name</key>
 	<string>import excel</string>
+	<key>scope</key>
+	<string>source.stata</string>
 	<key>tabTrigger</key>
 	<string>import exc</string>
 	<key>uuid</key>

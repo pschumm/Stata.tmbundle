@@ -6,6 +6,8 @@
 	<string>export excel${1: varlist} using ${2:filename}${3: if $4}${5: in $6}${7:,${8: sheet("${9:sheetname}")}${10: cell(${11:start})}${12: sheetmodify|sheetreplace|replace}${13: firstrow(${14:variables|varlabels})}${15: nolabel}${16: datestring("${17:datetime_format}")}${18: missing("${19:repval}")}${20: locale("${21:locale}")}}</string>
 	<key>name</key>
 	<string>export excel</string>
+	<key>scope</key>
+	<string>source.stata</string>
 	<key>tabTrigger</key>
 	<string>export exc</string>
 	<key>uuid</key>
