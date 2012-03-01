@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>forv ${1:lname} = ${2:range} {
+	<string>forvalues ${1:lname} = ${2:range} {
     $0
 }</string>
 	<key>name</key>
