@@ -6,6 +6,8 @@
 	<string>\{\s*$</string>
 	<key>foldingStopMarker</key>
 	<string>^\s*\}</string>
+	<key>keyEquivalent</key>
+	<string>^~M</string>
 	<key>name</key>
 	<string>Mata</string>
 	<key>patterns</key>
