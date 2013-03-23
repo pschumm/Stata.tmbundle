@@ -29,6 +29,6 @@ requests should be made using the corresponding GitHub issue tracker.
 Maintainers
 ===========
 
-The Stata bundle is currently maintained by Tom Palmer and [Phil
-Schumm](mailto:pschumm@uchicago.edu). The full list of contributors is listed
-in the AUTHORS file available in the code repository.
+The Stata bundle is currently maintained by Tom Palmer and Phil Schumm. The
+full list of contributors is listed in the AUTHORS file available in the code
+repository.

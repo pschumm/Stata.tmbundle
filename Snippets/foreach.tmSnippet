@@ -4,14 +4,14 @@
 <dict>
 	<key>content</key>
 	<string>foreach ${1:lname} ${2|in,of local,of global,of varlist,of newlist,of numlist|} ${3:list} {
-    $0
+	$0
 }</string>
 	<key>name</key>
 	<string>foreach</string>
 	<key>scope</key>
 	<string>source.stata</string>
 	<key>tabTrigger</key>
-	<string>foreach</string>
+	<string>fore</string>
 	<key>uuid</key>
 	<string>F7B12BD3-3EBB-4C35-9CB4-0133B9831FF7</string>
 </dict>
