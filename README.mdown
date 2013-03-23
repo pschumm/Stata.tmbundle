@@ -1,9 +1,12 @@
 Introduction
 ============
 
-This bundle provides support within the TextMate editor for working with Stata
-(including Mata) language files. More information is available by selecting
-*Help* from the bundle menu once it has been installed.
+This bundle provides support within the TextMate editor for working with
+[Stata](http://www.stata.com) language files (i.e., do-files and ado-files).
+The bundle also supports editing of
+[Mata](http://www.stata.com/why-use-stata/introduction-to-mata/) code, either
+as part of an ado-file or in a separate .mata file. More information is
+available by selecting *Help* from the bundle menu once it has been installed.
 
 Installation
 ============
@@ -28,6 +31,7 @@ you will be added to the AUTHORS file.
 Here is some information that contributors might find helpful:
 
 * [TextMate Wiki](https://github.com/textmate/textmate/wiki) — _knowledge base for users of and contributors to TextMate_
+* [Bundle Styleguide](http://wiki.macromates.com/Bundles/StyleGuide) — _may be a bit out-of-date_
 
 License
 =======
