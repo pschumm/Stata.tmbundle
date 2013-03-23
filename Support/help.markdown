@@ -19,3 +19,16 @@ entirely.
 
 Tab triggers for Stata commands correspond to the minimal abbreviation accepted 
 by Stata for that command.
+
+Bug Reports
+===========
+
+The bundle code is stored in a GitHub repository. Bug reports or enhancement
+requests should be made using the corresponding GitHub issue tracker.
+
+Maintainers
+===========
+
+The Stata bundle is currently maintained by Tom Palmer and [Phil
+Schumm](mailto:pschumm@uchicago.edu). The full list of contributors is listed
+in the AUTHORS file available in the code repository.
