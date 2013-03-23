@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>fileTypes</key>
+	<array/>
 	<key>foldingStartMarker</key>
 	<string>\{\s*$</string>
 	<key>foldingStopMarker</key>
@@ -15,30 +17,86 @@
 		<dict>
 			<key>begin</key>
 			<string>"</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin.mata</string>
+				</dict>
+			</dict>
 			<key>end</key>
 			<string>"</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end.mata</string>
+				</dict>
+			</dict>
 			<key>name</key>
 			<string>string.quoted.double.mata</string>
 		</dict>
 		<dict>
 			<key>begin</key>
 			<string>`"</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin.mata</string>
+				</dict>
+			</dict>
 			<key>end</key>
 			<string>"'</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end.mata</string>
+				</dict>
+			</dict>
 			<key>name</key>
 			<string>string.quoted.double.compound.mata</string>
 		</dict>
 		<dict>
 			<key>begin</key>
 			<string>/\*</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.comment.begin.mata</string>
+				</dict>
+			</dict>
 			<key>end</key>
 			<string>\*/</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.comment.end.mata</string>
+				</dict>
+			</dict>
 			<key>name</key>
 			<string>comment.block.mata</string>
 		</dict>
 		<dict>
+			<key>captures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.comment.mata</string>
+				</dict>
+			</dict>
 			<key>match</key>
-			<string>//.*$\n?</string>
+			<string>(//).*$\n?</string>
 			<key>name</key>
 			<string>comment.line.double-slash.mata</string>
 		</dict>

@@ -21,42 +21,114 @@
 		<dict>
 			<key>begin</key>
 			<string>"</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin.stata</string>
+				</dict>
+			</dict>
 			<key>end</key>
 			<string>"</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end.stata</string>
+				</dict>
+			</dict>
 			<key>name</key>
 			<string>string.quoted.double.stata</string>
 		</dict>
 		<dict>
 			<key>begin</key>
 			<string>`"</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin.stata</string>
+				</dict>
+			</dict>
 			<key>end</key>
 			<string>"'</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end.stata</string>
+				</dict>
+			</dict>
 			<key>name</key>
 			<string>string.quoted.double.compound.stata</string>
 		</dict>
 		<dict>
 			<key>begin</key>
 			<string>/\*</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.comment.begin.stata</string>
+				</dict>
+			</dict>
 			<key>end</key>
 			<string>\*/</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.comment.end.stata</string>
+				</dict>
+			</dict>
 			<key>name</key>
 			<string>comment.block.stata</string>
 		</dict>
 		<dict>
+			<key>captures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.comment.stata</string>
+				</dict>
+			</dict>
 			<key>match</key>
-			<string>^\s*\*.*$\n?</string>
+			<string>^\s*(\*).*$\n?</string>
 			<key>name</key>
 			<string>comment.line.star.stata</string>
 		</dict>
 		<dict>
+			<key>captures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.comment.stata</string>
+				</dict>
+			</dict>
 			<key>match</key>
-			<string>///.*$\n?</string>
+			<string>(///).*$\n?</string>
 			<key>name</key>
 			<string>comment.line.triple-slash.stata</string>
 		</dict>
 		<dict>
+			<key>captures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.comment.stata</string>
+				</dict>
+			</dict>
 			<key>match</key>
-			<string>//.*$\n?</string>
+			<string>(//).*$\n?</string>
 			<key>name</key>
 			<string>comment.line.double-slash.stata</string>
 		</dict>
@@ -185,10 +257,12 @@
 			<string>^\s*mata:?\s*$</string>
 			<key>comment</key>
 			<string>won't match single-line Mata statements</string>
+			<key>contentName</key>
+			<string>source.mata</string>
 			<key>end</key>
-			<string>^\s*end</string>
+			<string>^\s*end\s*$\n?</string>
 			<key>name</key>
-			<string>source.stata.embedded.mata</string>
+			<string>meta.embedded.block.mata</string>
 			<key>patterns</key>
 			<array>
 				<dict>
