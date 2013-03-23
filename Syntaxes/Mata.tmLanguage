@@ -44,7 +44,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\s(version|pragma|if|else|for|while|do|break|continue|goto|return)\s</string>
+			<string>(?&lt;![^$\s])(version|pragma|if|else|for|while|do|break|continue|goto|return)(?=\s)</string>
 			<key>name</key>
 			<string>keyword.control.mata</string>
 		</dict>
