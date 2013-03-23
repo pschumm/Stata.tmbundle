@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>contactEmailRot13</key>
+	<string>erzynczbg@ubgznvy.pbz</string>
+	<key>contactName</key>
+	<string>Tom Palmer</string>
 	<key>deleted</key>
 	<array>
 		<string>EA531F97-8E85-4DFE-9403-CD62800184EB</string>
@@ -11,6 +15,8 @@
 		<string>EB3E0A0F-32EA-47AC-AB9B-C30D028FE216</string>
 		<string>264E6EC9-6944-4F6F-94F7-177236BDA1C8</string>
 	</array>
+	<key>description</key>
+	<string>Support for the &lt;a href="http://www.stata.com/"&gt;Stata&lt;/a&gt; statistical software package.</string>
 	<key>mainMenu</key>
 	<dict>
 		<key>items</key>
