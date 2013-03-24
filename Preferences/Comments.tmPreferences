@@ -5,7 +5,7 @@
 	<key>name</key>
 	<string>Comments</string>
 	<key>scope</key>
-	<string>source.stata</string>
+	<string>source.stata,source.mata</string>
 	<key>settings</key>
 	<dict>
 		<key>shellVariables</key>
