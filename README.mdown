@@ -19,19 +19,29 @@ Bug Reports
 ===========
 
 If you find a bug or have an enhancement request, please file an issue using
-the corresponding GitHub issue tracker.
+the [GitHub issue tracker](https://github.com/statatmbundle/Stata.tmbundle/issues).
 
 Contributing
 ============
 
-Contributions are welcome. To contribute fork this repository, make your
-changes and then send a pull request. If your contribution is incorporated,
-you will be added to the AUTHORS file.
+Contributions are welcome. The primary repository is located at
+[https://github.com/statatmbundle](https://github.com/statatmbundle). To get
+started, [fork the repository](https://github.com/statatmbundle/Stata.tmbundle/fork_select),
+make your changes and then send a pull request. If your contribution is
+incorporated, you will be added to the AUTHORS file.
 
 Here is some information that contributors might find helpful:
 
 * [TextMate Wiki](https://github.com/textmate/textmate/wiki) — _knowledge base for users of and contributors to TextMate_
 * [Bundle Styleguide](http://wiki.macromates.com/Bundles/StyleGuide) — _may be a bit out-of-date_
+
+History
+=======
+
+This project was originally hosted on [SourceForge](https://sourceforge.net/projects/statatmbundle/).
+It was then migrated to GitHub at [pschumm/Stata.tmbundle](https://github.com/pschumm/Stata.tmbundle),
+and [the primary repository](https://github.com/statatmbundle/Stata.tmbundle)
+was forked from there.
 
 License
 =======
