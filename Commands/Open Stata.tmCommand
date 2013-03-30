@@ -32,7 +32,8 @@ then
 	TMPFILE="$STATA_DIR/.tm-stata-$$.do"
 	if [ ! -e "$TMPFILE" ]
 	then
-		echo "cd \"$STATA_DIR\"" &gt; "$TMPFILE"
+        # echo "cd \"$STATA_DIR\"" &gt; "$TMPFILE"
+        touch "$TMPFILE"
         open -b "$STATA" "$TMPFILE"
         # use a slightly longer sleep interval here since user is switching focus anyway
         sleep 2
