@@ -18,7 +18,24 @@ then
     fi
 fi
 
-open -b "$STATA" -g "$TM_FILEPATH"
+# N.B. if Stata transitions to UTF-8 input, then we can drop this overhead
+ENCODING=$(file --mime-encoding --brief "$TM_FILEPATH")
+if [ ! $ENCODING = "us-ascii" ]
+then
+    # translate to MACROMAN encoding
+    TMPFILE="$TM_DIRECTORY/.tm-stata-$$.do"
+    if [ ! -e "$TMPFILE" ]
+    then
+        iconv -f $ENCODING -t MACROMAN "$TM_FILEPATH" &gt; "$TMPFILE"
+        open -b "$STATA" -g "$TMPFILE"
+        sleep 0.5
+        rm "$TMPFILE"
+    else
+        echo "Can't create temporary file $TMPFILE (already exists)"
+    fi
+else
+    open -b "$STATA" -g "$TM_FILEPATH"
+fi
 </string>
 	<key>input</key>
 	<string>none</string>
@@ -33,7 +50,7 @@ open -b "$STATA" -g "$TM_FILEPATH"
 	<key>outputFormat</key>
 	<string>text</string>
 	<key>outputLocation</key>
-	<string>discard</string>
+	<string>toolTip</string>
 	<key>scope</key>
 	<string>source.stata</string>
 	<key>uuid</key>
