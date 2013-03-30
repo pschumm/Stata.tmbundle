@@ -8,6 +8,16 @@
 	<string>#!/usr/bin/env bash
 [[ -f "${TM_SUPPORT_PATH}/lib/bash_init.sh" ]] &amp;&amp; . "${TM_SUPPORT_PATH}/lib/bash_init.sh"
 
+STATA=$(defaults read "$TM_APP_IDENTIFIER" stataBundleIdentifier 2&gt;/dev/null)
+if [ ! -n "$STATA" ]
+then
+    STATA=$("${TM_BUNDLE_SUPPORT}/bin/locate_stata.py")
+    if [ ! -n "$STATA" ]
+    then
+        exit
+    fi
+fi
+
 # if project directory is set, open there; ow open in directory of current file
 if [ -n "$TM_PROJECT_DIRECTORY" ]
 then
@@ -23,17 +33,15 @@ then
 	if [ ! -e "$TMPFILE" ]
 	then
 		echo "cd \"$STATA_DIR\"" &gt; "$TMPFILE"
-		osascript &lt;&lt;-APPLESCRIPT
-			tell application id "S5x8" to activate
-         		tell application id "S5x8" to open POSIX file "${TMPFILE}"
-			delay 0.5  -- avoid deleting file before Stata reads it
-			do shell script "rm \"${TMPFILE}\""
-		APPLESCRIPT
+        open -b "$STATA" "$TMPFILE"
+        # use a slightly longer sleep interval here since user is switching focus anyway
+        sleep 2
+        rm "$TMPFILE"
 	else
-		osascript -e "tell application id \"S5x8\" to activate"
+        open -b "$STATA"
 	fi
 else
-	osascript -e "tell application id \"S5x8\" to activate"
+	open -b "$STATA"
 fi
 </string>
 	<key>input</key>

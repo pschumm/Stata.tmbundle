@@ -8,9 +8,17 @@
 	<string>#!/usr/bin/env bash
 [[ -f "${TM_SUPPORT_PATH}/lib/bash_init.sh" ]] &amp;&amp; . "${TM_SUPPORT_PATH}/lib/bash_init.sh"
 
-osascript -e "tell application id \"S5x8\"
-	open POSIX file \"${TM_FILEPATH}\"
-end tell"
+STATA=$(defaults read "$TM_APP_IDENTIFIER" stataBundleIdentifier 2&gt;/dev/null)
+if [ ! -n "$STATA" ]
+then
+    STATA=$("${TM_BUNDLE_SUPPORT}/bin/locate_stata.py")
+    if [ ! -n "$STATA" ]
+    then
+        exit
+    fi
+fi
+
+open -b "$STATA" -g "$TM_FILEPATH"
 </string>
 	<key>input</key>
 	<string>none</string>

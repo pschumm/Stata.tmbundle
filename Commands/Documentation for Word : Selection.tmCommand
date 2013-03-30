@@ -8,6 +8,16 @@
 	<string>#!/usr/bin/env bash
 [[ -f "${TM_SUPPORT_PATH}/lib/bash_init.sh" ]] &amp;&amp; . "${TM_SUPPORT_PATH}/lib/bash_init.sh"
 
+STATA=$(defaults read "$TM_APP_IDENTIFIER" stataBundleIdentifier 2&gt;/dev/null)
+if [ ! -n "$STATA" ]
+then
+    STATA=$("${TM_BUNDLE_SUPPORT}/bin/locate_stata.py")
+    if [ ! -n "$STATA" ]
+    then
+        exit
+    fi
+fi
+
 if [ -n "$TM_PROJECT_DIRECTORY" ]
 then
 	TMPFILE="$TM_PROJECT_DIRECTORY/.tm-stata-$$.do"
@@ -24,12 +34,9 @@ then
 		then echo "help $TM_SELECTED_TEXT" &gt; "$TMPFILE"
 		else echo "help $TM_CURRENT_WORD" &gt; "$TMPFILE"
 	fi
-	osascript &lt;&lt;-APPLESCRIPT
-		tell application id "S5x8" to activate
-		tell application id "S5x8" to open POSIX file "${TMPFILE}"
-		delay 0.5
-		do shell script "rm \"${TMPFILE}\""
-	APPLESCRIPT
+    open -b "$STATA" "$TMPFILE"
+    sleep 0.5
+    rm "$TMPFILE"
 else
 	echo "Can't create temporary file $TMPFILE (already exists)"
 fi
@@ -49,7 +56,7 @@ fi
 	<key>outputFormat</key>
 	<string>text</string>
 	<key>outputLocation</key>
-	<string>discard</string>
+	<string>toolTip</string>
 	<key>scope</key>
 	<string>source.stata, source.mata</string>
 	<key>uuid</key>
