@@ -3,10 +3,10 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>*! version 1.0.0d1  `date +%d%b%Y | tr '[A-Z]' '[a-z]'`
+	<string>*! version 1.0.0  `date +%d%b%Y | tr '[A-Z]' '[a-z]'`
 // ${1:description}
 
-program ${2:program name}
+program ${2:pgmname}
 	version 12.1
 	$0
 
