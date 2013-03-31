@@ -43,8 +43,8 @@ then
     
     # N.B. if Stata transitions to UTF-8 input, then we can drop this overhead
     # translate to MACROMAN encoding, if necessary
-    ENCODING=$(file --mime-encoding --brief "$TMPFILE")
-    if [ ! $ENCODING = "us-ascii" ]
+    ENCODING=$(file --mime-encoding --brief "$TMPFILE") &amp;&amp;
+    if [ ! "$ENCODING" = "us-ascii" ]
     then
         TMPFILE2=`mktemp .tm-stata.XXXXXX` || exit 1
         iconv -f $ENCODING -t MACROMAN "$TMPFILE" &gt; "$TMPFILE2"
