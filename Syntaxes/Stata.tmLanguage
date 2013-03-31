@@ -65,6 +65,13 @@
 			</dict>
 			<key>name</key>
 			<string>string.quoted.double.compound.stata</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#cdq_string_content</string>
+				</dict>
+			</array>
 		</dict>
 		<dict>
 			<key>begin</key>
@@ -89,6 +96,13 @@
 			</dict>
 			<key>name</key>
 			<string>comment.block.stata</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#cb_content</string>
+				</dict>
+			</array>
 		</dict>
 		<dict>
 			<key>captures</key>
@@ -272,6 +286,37 @@
 			</array>
 		</dict>
 	</array>
+	<key>repository</key>
+	<dict>
+		<key>cb_content</key>
+		<dict>
+			<key>begin</key>
+			<string>/\*</string>
+			<key>end</key>
+			<string>\*/</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#cb_content</string>
+				</dict>
+			</array>
+		</dict>
+		<key>cdq_string_content</key>
+		<dict>
+			<key>begin</key>
+			<string>`"</string>
+			<key>end</key>
+			<string>"'</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#cdq_string_content</string>
+				</dict>
+			</array>
+		</dict>
+	</dict>
 	<key>scopeName</key>
 	<string>source.stata</string>
 	<key>uuid</key>

@@ -61,6 +61,13 @@
 			</dict>
 			<key>name</key>
 			<string>string.quoted.double.compound.mata</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#cdq_string_content</string>
+				</dict>
+			</array>
 		</dict>
 		<dict>
 			<key>begin</key>
@@ -85,6 +92,13 @@
 			</dict>
 			<key>name</key>
 			<string>comment.block.mata</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#cb_content</string>
+				</dict>
+			</array>
 		</dict>
 		<dict>
 			<key>captures</key>
@@ -162,6 +176,34 @@
 			)(?=\()</string>
 			<key>name</key>
 			<string>support.function.builtin.mata</string>
+		</dict>
+		<key>cb_content</key>
+		<dict>
+			<key>begin</key>
+			<string>/\*</string>
+			<key>end</key>
+			<string>\*/</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#cb_content</string>
+				</dict>
+			</array>
+		</dict>
+		<key>cdq_string_content</key>
+		<dict>
+			<key>begin</key>
+			<string>`"</string>
+			<key>end</key>
+			<string>"'</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#cdq_string_content</string>
+				</dict>
+			</array>
 		</dict>
 	</dict>
 	<key>scopeName</key>
