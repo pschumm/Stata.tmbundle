@@ -18,25 +18,43 @@ then
     fi
 fi
 
-# N.B. if Stata transitions to UTF-8 input, then we can drop this overhead
-ENCODING=$(file --mime-encoding --brief "$TM_FILEPATH") &amp;&amp;
-if [ ! "$ENCODING" = "us-ascii" ]
+USE_PDIR=$(defaults read "$TM_APP_IDENTIFIER" stataDoFromProjectDirectory 2&gt;/dev/null)
+if [ "$USE_PDIR" = "1" ] &amp;&amp; [ -n "$TM_PROJECT_DIRECTORY" ]
 then
-    # translate to MACROMAN encoding
-    TMPFILE="$TM_DIRECTORY/.tm-stata-$$.do"
+    WD="$TM_PROJECT_DIRECTORY"
+else
+    WD="$TM_DIRECTORY"
+fi
+
+# N.B. if Stata transitions to UTF-8 input, then we can drop this overhead
+DECODE=false
+ENCODING=$(file --mime-encoding --brief "$TM_FILEPATH")
+if [ ! "$ENCODING" = "us-ascii" ] &amp;&amp; [[ "$ENCODING" != unknown* ]] &amp;&amp; [ -n "$ENCODING" ]
+then
+    DECODE=true
+fi
+
+if $DECODE || [ "$USE_PDIR" = "1" -a "$WD" != "$TM_DIRECTORY" ]
+then
+    TMPFILE="$WD/.tm-stata-$$.do"
     if [ ! -e "$TMPFILE" ]
     then
-        iconv -f $ENCODING -t MACROMAN "$TM_FILEPATH" &gt; "$TMPFILE"
+        if $DECODE
+        then
+            # translate to MACROMAN encoding
+            iconv -f $ENCODING -t MACROMAN "$TM_FILEPATH" &gt; "$TMPFILE" || cp "$TM_FILEPATH" "$TMPFILE"
+        else
+            cp "$TM_FILEPATH" "$TMPFILE"
+        fi
         open -b "$STATA" -g "$TMPFILE"
         sleep 0.5
         rm "$TMPFILE"
     else
         echo "Can't create temporary file $TMPFILE (already exists)"
     fi
-    exit
+else
+    open -b "$STATA" -g "$TM_FILEPATH"
 fi
-
-open -b "$STATA" -g "$TM_FILEPATH"
 </string>
 	<key>input</key>
 	<string>none</string>
