@@ -9,11 +9,10 @@
 [[ -f "${TM_SUPPORT_PATH}/lib/bash_init.sh" ]] &amp;&amp; . "${TM_SUPPORT_PATH}/lib/bash_init.sh"
 
 STATA=$(defaults read "$TM_APP_IDENTIFIER" stataBundleIdentifier 2&gt;/dev/null)
-if [ ! -n "$STATA" ]
-then
+if [ ! -n "$STATA" ]; then
     STATA=$("${TM_BUNDLE_SUPPORT}/bin/locate_stata.py")
-    if [ ! -n "$STATA" ]
-    then
+    if [ ! -n "$STATA" ]; then
+        echo "Can't locate Stata application"
         exit
     fi
 fi
@@ -26,38 +25,24 @@ else
     WD="$TM_DIRECTORY"
 fi
 
-# N.B. if Stata transitions to UTF-8 input, then we can drop this overhead
-DECODE=false
-ENCODING=$(file --mime-encoding --brief "$TM_FILEPATH")
-if [ ! "$ENCODING" = "us-ascii" ] &amp;&amp; [[ "$ENCODING" != unknown* ]] &amp;&amp; [ -n "$ENCODING" ]
-then
-    DECODE=true
-fi
+# note: Stata won't open file unless it has extension .do; thus, we can't use
+# mktemp to create temporary file, e.g.,
+# TMPFILE=`mktemp $WD/tm-stata.XXXXXX` || exit
 
-if $DECODE || [ "$USE_PDIR" = "1" -a "$WD" != "$TM_DIRECTORY" ]
+# here we just use the process id instead
+TMPFILE="$WD/.tm-stata-$$.do"
+if [ ! -e "$TMPFILE" ]
 then
-    TMPFILE="$WD/.tm-stata-$$.do"
-    if [ ! -e "$TMPFILE" ]
-    then
-        if $DECODE
-        then
-            # translate to MACROMAN encoding
-            iconv -f $ENCODING -t MACROMAN "$TM_FILEPATH" &gt; "$TMPFILE" || cp "$TM_FILEPATH" "$TMPFILE"
-        else
-            cp "$TM_FILEPATH" "$TMPFILE"
-        fi
-        open -b "$STATA" -g "$TMPFILE"
-        sleep 0.5
-        rm "$TMPFILE"
-    else
-        echo "Can't create temporary file $TMPFILE (already exists)"
-    fi
+    iconv -f utf-8 -t MACROMAN &lt;&amp;0 &gt; "$TMPFILE"
+    open -b "$STATA" -g "$TMPFILE"
+    sleep 1
+    rm "$TMPFILE"
 else
-    open -b "$STATA" -g "$TM_FILEPATH"
+	echo "Can't create temporary file $TMPFILE (already exists)"
 fi
 </string>
 	<key>input</key>
-	<string>none</string>
+	<string>document</string>
 	<key>inputFormat</key>
 	<string>text</string>
 	<key>keyEquivalent</key>

@@ -35,7 +35,7 @@ then
 		else echo "help $TM_CURRENT_WORD" &gt; "$TMPFILE"
 	fi
     open -b "$STATA" "$TMPFILE"
-    sleep 0.5
+    sleep 1
     rm "$TMPFILE"
 else
 	echo "Can't create temporary file $TMPFILE (already exists)"
