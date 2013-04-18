@@ -36,12 +36,14 @@ it by double-clicking on it.
 
 2. When using "Do File", Stata's working directory will be set to the location
 of that file (i.e., it is just as if you executed the do-file by
-double-clicking on it).
+double-clicking on it). If however the preference "Execute do-files from
+project directory" is checked, then Stata's working directory will be set to
+the value of `TM_PROJECT_DIRECTORY`.
 
 3. When using "Do Line/Selection" or "Documentation for Word/Selection", the
 working directory will be set as in (1) except in the case where the command
-is executed without an open project or file. In that case, Stata's working
-directory will be set to the user's Desktop.
+is executed without an open project or without being in a saved file. In that
+case, Stata's working directory will be set to the user's Desktop.
 
 Use of temporary files
 ----------------------
