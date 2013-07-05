@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/usr/bin/env python
+# Obtains a list of possible variable name completions for the current word,
+# based on the dataset currently loaded in Stata.
+# Original idea by George MacKerron (http://blog.mackerron.com/2010/02/06/stata-textmate-tab-completion/)
+
+import os
+from Foundation import CFPreferencesCopyAppValue
+import subprocess
+import string
+import sys
+
+word = os.environ['TM_CURRENT_WORD']
+stata_uri = CFPreferencesCopyAppValue('stataBundleIdentifier',
+                                      os.environ['TM_APP_IDENTIFIER'])
+if not stata_uri:
+    cmd = '{0}/bin/locate_stata.py'.format(os.environ['TM_BUNDLE_SUPPORT'])
+    stata_uri = subprocess.check_output([cmd]).strip()
+    if not stata_uri:
+        sys.stdout.write(word)
+        sys.exit()
+
+stata_version = int(''.join([c for c in stata_uri if c.isdigit()]))
+if stata_version &lt; 13:
+    subprocess.call([os.environ['DIALOG'],'tooltip','--text',
+                     'Variable name completion requires Stata 13 or greater'])
+    sys.stdout.write(word)
+    sys.exit()
+
+cmd = 'tell application id "{0}" to VariableNameArray'.format(stata_uri)
+p = subprocess.Popen(['osascript','-e',cmd], stdout=subprocess.PIPE,
+                     stderr=subprocess.PIPE)
+out, err = p.communicate()
+
+if not p.returncode:
+    varnames = [name for name in out.strip().split(', ') if name[:len(word)]==word]
+    if varnames and (varnames!=['']):
+        if len(varnames)==1:
+            sys.stdout.write(varnames[0])
+        else:
+            sys.stdout.write('${1|' + string.join(sorted(varnames), ',') + '|}')
+    else:
+        subprocess.call([os.environ['DIALOG'],'tooltip','--text',
+                         'No matching vars'])
+        sys.stdout.write(word)
+else:
+    subprocess.call([os.environ['DIALOG'],'tooltip','--text',err])
+</string>
+	<key>input</key>
+	<string>word</string>
+	<key>inputFormat</key>
+	<string>text</string>
+	<key>keyEquivalent</key>
+	<string>~</string>
+	<key>name</key>
+	<string>Complete Varname</string>
+	<key>outputCaret</key>
+	<string>afterOutput</string>
+	<key>outputFormat</key>
+	<string>snippet</string>
+	<key>outputLocation</key>
+	<string>replaceInput</string>
+	<key>scope</key>
+	<string>source.stata</string>
+	<key>uuid</key>
+	<string>0EAF11F6-9C56-4A0C-867B-43778EB13A67</string>
+	<key>version</key>
+	<integer>2</integer>
+</dict>
+</plist>

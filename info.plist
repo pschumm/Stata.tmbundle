@@ -19,6 +19,10 @@
 	<string>Support for the &lt;a href="http://www.stata.com/"&gt;Stata&lt;/a&gt; statistical software package.</string>
 	<key>mainMenu</key>
 	<dict>
+		<key>excludedItems</key>
+		<array>
+			<string>0EAF11F6-9C56-4A0C-867B-43778EB13A67</string>
+		</array>
 		<key>items</key>
 		<array>
 			<string>B1E8AA7A-171E-4E0B-B254-79D9AD936032</string>

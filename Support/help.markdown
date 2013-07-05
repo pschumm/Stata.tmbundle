@@ -14,10 +14,10 @@ Like Stata's own do-file editor, the Stata bundle permits the user to execute
 the current do-file or the selected line(s) within it. The Stata bundle also
 permits the user to execute the current line (if no selection is highlighted).
 The Stata bundle does *not* permit the user to `run` (i.e., execute quietly) a
-file/selection/line (Stata's currently limited support for Apple events
-precludes this). In addition, the Stata bundle provides commands to switch
-focus to Stata (launching it first if it is not already running) and to show
-(in Stata's Viewer) Stata's documentation for the current word/selection.
+file/selection/line (this is not possible with Stata's current scripting
+support). In addition, the Stata bundle provides commands to switch focus to
+Stata (launching it first if it is not already running) and to show (in
+Stata's Viewer) Stata's documentation for the current word/selection.
 
 When using "Do File" or "Do Line/Selection", TextMate's focus will be
 retained, just as with Stata's own do-file editor.
@@ -48,13 +48,13 @@ case, Stata's working directory will be set to the user's Desktop.
 Use of temporary files
 ----------------------
 
-Because Stata's support for Apple events is limited, communication with Stata
-is accomplished through the use of temporary files named `.tm-stata-pid.do`
-where `pid` stands for the process ID. These files are written in the working
-directory, and deleted automatically afterward. Although this strategy
-generally works well, it may fail in cases where Stata is not already running.
-Specifically, if it takes too long to launch Stata, the temporary file will be
-deleted before Stata can open it. In these cases, you may get an error like
+Execution of Stata code is accomplished through the use of temporary files
+named `.tm-stata-pid.do` where `pid` stands for the process ID. These files
+are written in the working directory, and deleted automatically afterward.
+Although this strategy generally works well, it may fail in cases where Stata
+is not already running. Specifically, if it takes too long to launch Stata,
+the temporary file will be deleted before Stata can open it. In these cases,
+you may get an error like
 
     file .tm-stata-pid.do not found
 
@@ -65,6 +65,18 @@ Stata will come to the front the working directory may not be set as you
 expect (since the bundle relies on opening the temporary file to set the
 working directory appropriately). In these cases, once Stata is running simply
 execute the bundle command again.
+
+Variable name completion
+------------------------
+
+Stata 13 introduced greater AppleScript support, and this now makes it possible
+to implement variable name completion, an idea first suggested by George MacKerron
+on [his blog](http://blog.mackerron.com/2010/02/06/stata-textmate-tab-completion/).
+Type `⌥⎋` to complete the word in which the caret is located (i.e.,
+`TM_CURRENT_WORD`) using the variable names from the dataset currently loaded
+in Stata. If the current word uniquely determines one of the variable names,
+then it will be replaced with the complete name automatically. If there are
+multiple possible matches, then these are shown in a pop-up menu.
 
 
 A Tour of the Bundle's Language Features
